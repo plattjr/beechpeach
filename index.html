@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset=utf-8 />
+	<title>Beech Peach - a mixed surface biking route</title>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css" />
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background: "whitesmoke";
+			font-family: "Lora", serif;
+			color: #3d3d3d;
+		}
+
+		h1 {
+			position: absolute;
+			left: 50px;
+			top: 10px;
+			padding: ;
+			margin: 0;
+			background-color: rgba(220, 255, 255, 0.7);
+			box-shadow: 15 15 15px rgba(0,0,0,0.2);
+			color: whitesmoke;
+			border-radius: 3px;
+			font-size: .9em;
+			z-index: 700;
+		}
+
+		h2 {
+			font-family: "Lora", serif;
+			letter-spacing: .04em;
+		}
+
+    h4 {
+			font-family: "Lora", serif;
+			letter-spacing: .04em;
+		}
+
+		#map {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 100%;
+		}
+
+		section {
+			position: absolute;
+			bottom: 0;
+			left: 10px;
+			width: 280px;
+			margin: 20px auto;
+			padding: 0 15px;
+			background: rgba(256, 256, 256);
+			border: 1px solid grey;
+			border-radius: 3px;
+			z-index: 800;
+		}
+
+		p {
+			font-family: "Montserrat";
+			font-size: 0.8em;
+			line-height: 1.5em;
+		}
+
+    p.author {
+      font-size: 0.6em;
+      line-height: 1.5em;
+      color: grey;
+    }
+
+		a {
+			color: orange;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		.leaflet-popup {
+			font-family: "Lora", serif;
+			letter-spacing: .06em;
+		}
+
+		.leaflet-popup img {
+			max-width: 600px;
+			max-height: 400px;
+		}
+
+	</style>
+</head>
+
+<body>
+
+  <h1><img src="images/logo.png" width="500"></h1>
+
+	<div id='map'></div>
+
+	<section>
+		<h2>about this route</h2>
+    <h4>43 miles - 5,763' Elevation Gain<BR><BR>60% unpaved - 40% paved</h4>
+
+		<p>By combing two of my favorite routes in my "backyard," this all terrain cycling route plunges you into
+      the Watauga River floodplain and punishes you all the way to the spruce fir ridge of Beech Mountain.
+      Two big climbs, each over 1,500', and three exhilarating descents make for a good day biking in the
+      Northwest corner of North Carolina's High Country.</p>
+
+    <p>
+
+		<p>Cue Sheets available to download via <a href="https://ridewithgps.com/routes/40931068">Ride With GPS</a></p>
+		<p class = "author">Map author: Josh Platt</p>
+
+	</section>
+
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+	<script src="assets/route1.js"></script> //route1 is loaded here.
+	<script src="assets/route2.js"></script> //route2 is loaded here.
+	<script src="assets/poi.js"></script> //poi is loaded here.
+
+	<script>
+
+//options to be used when creating the map
+		var options = {
+			center: [36.21318786272984, -81.86771419774318],
+			zoom: 13
+		}
+
+//creation of the Leaflet map
+		var map = L.map('map', options);
+
+//request to load basemap
+var Jawg_Terrain = L.tileLayer('https://{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
+	attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	minZoom: 0,
+	maxZoom: 22,
+	subdomains: 'abcd',
+	accessToken: '3DhqvPsSwRdIjWhVLnMq4N347rn9uyy2rBVgaHnbm81Kmu2WxoUTh3YQuB4ylmJh'
+}).addTo(map);
+
+//add route2 data section
+//		var myRoute = L.geoJSON(data).addTo(map);  //(data) refers to var data in route2.js file
+//		map.fitBounds(myRoute.getBounds());
+
+//route 1 - beech peach
+		var myRoute = L.geoJSON(route1, {
+			filter: function(feature) {
+				if(feature.geometry.type == "LineString") {
+				return feature;
+				}
+			},
+
+			style: function(feature) {
+				return {
+					color: "#44B2E5",
+					weight: 6,
+					opacity: 0.7,
+					dashArray: "5, 5"
+				}
+			}
+		}).addTo(map);
+
+//route 2 - River Road to Laurel
+    var myRoute = L.geoJSON(route2, {
+      filter: function(feature) {
+        if(feature.geometry.type == "LineString") {
+        return feature;
+        }
+      },
+
+      style: function(feature) {
+        return {
+          color: "#F99E3B",
+          weight: 6,
+          opacity: 0.7,
+          dashArray: "5, 5"
+        }
+      }
+    }).addTo(map);
+
+
+//		var myStops = L.geoJSON(data, {
+	//		filter:function(feature) {
+		//		if(feature.geometry.type == "Point") {
+			//		return feature;
+				//}
+//			},
+	//		onEachFeature: function(feature, layer) {
+		//		layer.bindTooltip(feature.properties.name)
+			//}
+//		}).addTo(map);
+
+var myMarker = L.geoJSON(poi, {
+  filter: function (feature) {
+    if (feature.geometry.type == "Point") {
+      return feature;
+    }
+  },
+
+  onEachFeature: function (feature, layer) {
+    layer.bindPopup(
+      "<h2>" +
+        feature.properties.name +
+        "</h2><h4>" +
+        feature.properties.text +
+        "</h4>" +
+        "<img src='" +
+        feature.properties.img +
+        "'/>",
+      {
+        maxWidth: "auto",
+      }
+    );
+  },
+}).addTo(map);
+
+	</script>
+
+</body>
+
+</html>
