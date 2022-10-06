@@ -43,7 +43,7 @@ var poi = {
         "marker-symbol": "",
         name: "Fred's General Mercantile",
         text: "Gassin' up.  Grab a mid ride snack or meal from the Deli.",
-        img: "./images/gas.jpg",},
+        img: "./images/gas.JPG",},
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -60,7 +60,7 @@ var poi = {
         "marker-symbol": "",
         name: "View of Grandfather",
         text: "The descent off of Beech follows the rough and at times technical Elderberry Ridge Rd. Then opens up to the best view on the ride.",
-        img: "./images/beech.jpg",},
+        img: "./images/beech.JPG",},
       "geometry": {
         "type": "Point",
         "coordinates": [
