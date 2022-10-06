@@ -110,7 +110,9 @@
 
 		<p>By combing two of my favorite routes in my "backyard," this all terrain cycling route plunges you into
       the Watauga River floodplain and punishes you all the way to the spruce fir ridge of Beech Mountain.
-      Two big climbs, each over 1,500', and three exhilarating descents make for a good day biking in the
+			The original <font color = "#44B2E5">"Beech Peach"</font> route consists of 30 miles but adding in the <font color = "#F99E3B">"River Road Jaunt"</font> makes this an 
+			exhaustive day.
+      Two big climbs, each over 1,500', and three exhilarating descents make for a good time biking in the
       Northwest corner of North Carolina's High Country.</p>
 
     <p>
@@ -162,8 +164,8 @@ var Jawg_Terrain = L.tileLayer('https://{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y
 				return {
 					color: "#44B2E5",
 					weight: 6,
-					opacity: 0.7,
-					dashArray: "5, 5"
+					opacity: 0.8,
+					dashArray: "10, 10"
 				}
 			}
 		}).addTo(map);
@@ -180,8 +182,8 @@ var Jawg_Terrain = L.tileLayer('https://{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y
         return {
           color: "#F99E3B",
           weight: 6,
-          opacity: 0.7,
-          dashArray: "5, 5"
+          opacity: 0.8,
+          dashArray: "10, 10"
         }
       }
     }).addTo(map);
