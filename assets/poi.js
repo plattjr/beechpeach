@@ -107,7 +107,8 @@ var poi = {
       "type": "Feature",
       "properties": {
         name: "Start & End",
-        text: "Parking available at this church",},
+        text: "Parking available at this church",
+        img: "./images/lit.jpg",},
       "geometry": {
         "type": "Point",
         "coordinates": [
