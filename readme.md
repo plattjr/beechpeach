@@ -3,7 +3,7 @@ An all terrain bike route in the northwest corner of North Carolina's High Count
 
 Parking is available at The Watauga River Gorge parking area and Faith Baptist Mission Church in the Rominger community.
 
----
+# 
 
 **Libraries & Languages:**
   * HTML
