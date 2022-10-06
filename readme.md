@@ -2,7 +2,6 @@
 An all terrain bike route in the northwest corner of North Carolina's High Country.  This map provides the user with two cycling routes with the option to combine the two to create a figure 8 loop.  Along the route, I have placed various "points of interests" in hopes to make the day more than just a bike day.  These points are clickable on the map to learn more.
 
 Parking is available at The Watauga River Gorge parking area and Faith Baptist Mission Church in the Rominger community.
-
 # 
 
 **Libraries & Languages:**
