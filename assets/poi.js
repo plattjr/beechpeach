@@ -102,6 +102,19 @@ var poi = {
           36.22056079122332
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        name: "Start & End",
+        text: "Parking available at this church",},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.83897137641907,
+          36.226859556234345
+        ]
+      }
     }
   ]
 }
