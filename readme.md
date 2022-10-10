@@ -13,6 +13,7 @@ An all terrain bike route in the northwest corner of North Carolina's High Count
   * Javascript
   * CSS
   * JQuery
+  * Leaflet
   * Google Fonts
 
 **Data Sources:**
